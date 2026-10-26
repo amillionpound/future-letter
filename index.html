@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>致五年后的自己</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <section class="envelope" id="envelope">
+      <div class="env-flap"></div>
+      <div class="env-body">
+        <p class="env-hint">一封写给未来自己的信</p>
+        <button class="env-open" id="openBtn">拆 封</button>
+      </div>
+    </section>
+
+    <section class="letter hidden" id="letter">
+      <header class="letter-head">
+        <h1>致五年后的自己</h1>
+        <p class="letter-sub" id="updatedAt"></p>
+      </header>
+
+      <article class="letter-body" id="letterBody">
+        <p class="placeholder">这封信还是空的。用右下角的编辑按钮,把想对五年后的自己说的话写进来吧。</p>
+      </article>
+
+      <footer class="letter-foot">
+        <div class="seal" id="seal">
+          <span class="seal-dot"></span>
+          <span id="sealText">内容指纹待校验</span>
+        </div>
+        <span class="lock-badge hidden" id="lockBadge">🔒 已封印(不可再改)</span>
+      </footer>
+    </section>
+
+    <p class="tamper-warn hidden" id="tamperWarn">⚠️ 检测到内容指纹不一致,内容可能已被改动!</p>
+  </main>
+
+  <!-- 隐藏的管理入口 -->
+  <button class="admin-fab" id="adminFab" title="编辑 / 管理">✎</button>
+
+  <div class="modal hidden" id="adminModal">
+    <div class="modal-card">
+      <h2>管理这封信</h2>
+      <label class="field">
+        <span>管理口令</span>
+        <input type="password" id="tokenInput" placeholder="写入 SCF 的 ADMIN_TOKEN" autocomplete="off" />
+      </label>
+      <label class="field">
+        <span>信件内容(可逐步添加 / 修改)</span>
+        <textarea id="contentInput" rows="12" placeholder="写给五年后的自己……"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button id="saveBtn" class="btn primary">保存</button>
+        <button id="lockBtn" class="btn warn">🔒 封印(锁定后不可改)</button>
+        <button id="closeBtn" class="btn ghost">关闭</button>
+      </div>
+      <p class="modal-msg" id="adminMsg"></p>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
